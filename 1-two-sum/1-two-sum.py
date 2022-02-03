@@ -15,9 +15,10 @@ class Solution:
         hashMap = dict()
         for i, num in enumerate(nums):
             residual = target - num
-            if residual in list(hashMap.keys()):
+            try:
+                hashMap[residual]
                 return sorted([i, hashMap[residual]], reverse=False)
-            else:
+            except KeyError:
                 hashMap[num] = i
             
 if __name__ == '__main__':
