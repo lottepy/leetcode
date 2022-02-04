@@ -17,8 +17,6 @@ class Solution:
                 val += l2.val
             
             temp.next = ListNode(val=val % 10, next=None)
-            print(val, val % 10)
-            
             temp = temp.next
             if l1 is not None:
                 l1 = l1.next
