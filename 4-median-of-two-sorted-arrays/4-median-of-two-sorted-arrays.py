@@ -1,5 +1,6 @@
 class Solution:
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
+        # Queue
         while(len(nums1) + len(nums2) > 2):
             if len(nums1) == 0:
                 left = nums2[0]
@@ -23,7 +24,7 @@ class Solution:
         if len(nums1) + len(nums2) == 2:
             return (sum(nums1) + sum(nums2)) / 2.0
         else:
-            return float(list(set(nums1).union(set(nums2)))[0])
+            return (sum(nums1) + sum(nums2))
 
 
 if __name__ == '__main__':
