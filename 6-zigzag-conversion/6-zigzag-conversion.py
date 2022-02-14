@@ -18,7 +18,7 @@ class Solution:
                
         # return ''.join([''.join(r) for r in dp])
 
-        # Method 2: 
+        # Method 2: Count Steps
         if numRows == 1:
             return s
 
