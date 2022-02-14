@@ -2,7 +2,7 @@ class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows == 1:
             return s
-        dp = [[''] * (len(s) // (numRows - 1) + numRows) for _ in range(numRows)]
+        dp = [[''] * (len(s) // (numRows - 1) + 1) for _ in range(numRows)]
         count, i = 0, 0
         while i < len(s):
             if count % numRows == 0 and i != 0:
