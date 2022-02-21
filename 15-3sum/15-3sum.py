@@ -44,15 +44,15 @@ class Solution:
         nums.sort()
         targetPool = set()
         for i, num in enumerate(nums):
-            if num not in targetPool:
-                targetPool.add(- num)
-                target = - num
+            target = -num
+            if target not in targetPool:
+                targetPool.add(target)
                 meetTarget = twoSum(copy.deepcopy(nums), target, i)
                 if len(meetTarget) > 0:
                     for meet in meetTarget:
                         meet.append(num)
                         meet.sort()
-                        res[tuple(meet)] = 0        
+                        res[tuple(meet)] = 0         
             else:
                 continue            
 
