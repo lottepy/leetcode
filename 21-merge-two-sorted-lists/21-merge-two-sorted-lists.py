@@ -7,14 +7,9 @@ class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if list1 is None and list2 is None:
             return None
-        elif list1 is None and list2 is not None:
-            anchor1, anchor2 = list2, list1
-        elif list1 is not None and list2 is None:
-            anchor1, anchor2 = list1, list2
-        elif list1.val <= list2.val:
-            anchor1, anchor2 = list1, list2  
-        else:
-            anchor1, anchor2 = list2, list1         
+        elif (list1 is None and list2 is not None) or (list1 is not None and list2 is not None and list1.val > list2.val):
+            return self.mergeTwoLists(list2, list1)
+        anchor1, anchor2 = list1, list2       
         res = anchor1
         while anchor1 is not None and anchor2 is not None:  
             if anchor1.val <= anchor2.val:
