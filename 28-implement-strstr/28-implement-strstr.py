@@ -4,6 +4,8 @@ class Solution:
             return 0
 
         for i in range(0, len(haystack) - len(needle) + 1):
+            if haystack[i] != needle[0]:
+                continue
             if needle == haystack[i:i+len(needle)]:
                 return i    
                 
