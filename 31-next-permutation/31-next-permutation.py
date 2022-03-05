@@ -15,7 +15,7 @@ class Solution:
                 nums.sort()
                 return None
             elif descend(nums[i:]) and i > 0:
-                anchor = i
+                anchor = nums[i]
                 for j in range(len(nums)-1, i-1, -1):
                     if nums[j] > nums[i-1]:
                         anchor = nums[j]
