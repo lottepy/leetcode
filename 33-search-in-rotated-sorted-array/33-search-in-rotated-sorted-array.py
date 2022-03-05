@@ -1,5 +1,6 @@
 class Solution:
     def search(self, nums: list[int], target: int) -> int:
+        # # Method 1: Two Binary Search
         def binary(li, target):
             l, r = 0, len(li)-1
             while l <= r:
@@ -20,18 +21,28 @@ class Solution:
                 rotation = True
                 break      
 
+        # if rotation:
+        #     upper = binary(nums[:i+1], target)    
+        #     if upper != -1:
+        #         return upper
+        #     else:
+        #         lower = binary(nums[i+1:], target)    
+        #         if lower != -1:
+        #             return i + lower + 1
+        #         else:
+        #             return -1        
+        # else:
+        #     return binary(nums, target)  
+
+        # Method 2: One Binary Search
         if rotation:
-            upper = binary(nums[:i+1], target)    
-            if upper != -1:
-                return upper
+            if target >= nums[0]:
+                return binary(nums[:i+1], target)
             else:
-                lower = binary(nums[i+1:], target)    
-                if lower != -1:
-                    return i + lower + 1
-                else:
-                    return -1       
+                temp = binary(nums[i+1:], target) 
+                return -1 if temp == -1 else temp + i + 1
         else:
-            return binary(nums, target)         
+            return binary(nums, target)          
 
         
 if __name__ == '__main__':
