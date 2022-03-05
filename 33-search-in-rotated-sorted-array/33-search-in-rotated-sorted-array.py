@@ -17,19 +17,19 @@ class Solution:
         rotation = False    
         for i in range(len(nums)-1):
             if nums[i] > nums[i+1]:
-                # nums = nums[i+1:] + nums[:i+1] 
                 rotation = True
                 break      
 
         if rotation:
             upper = binary(nums[:i+1], target)    
-            lower = binary(nums[i+1:], target)
             if upper != -1:
                 return upper
-            elif lower != -1:
-                return i + lower + 1
             else:
-                return -1        
+                lower = binary(nums[i+1:], target)    
+                if lower != -1:
+                    return i + lower + 1
+                else:
+                    return -1       
         else:
             return binary(nums, target)         
 
