@@ -18,13 +18,13 @@ class Solution:
                 anchor = i
                 for j in range(len(nums)-1, i-1, -1):
                     if nums[j] > nums[i-1]:
-                        anchor = j
+                        anchor = nums[j]
                         break
-                        
-                temp = nums[i-1:anchor] + nums[anchor+1:]
-                nums[i-1] = nums[anchor]
-                for j, t in enumerate(sorted(temp)):
-                    nums[i+j] = t
+                nums[j] = nums[i-1]
+                nums[i-1] = anchor
+                temp = nums[i:][::-1]
+                for j in range(i, len(nums)):
+                    nums[j] = temp[j-i]
                 return None
             else:
                 continue
